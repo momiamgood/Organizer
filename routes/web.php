@@ -14,5 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/login', [\App\Http\Controllers\Auth\Login::class, 'show'])->name('login');
+Route::post('/login', [\App\Http\Controllers\Auth\Login::class, 'login']);
+
+Route::get('/register', [\App\Http\Controllers\Auth\Register::class, 'show'])->name('register');
+Route::post('/register', [\App\Http\Controllers\Auth\Register::class, 'store']);
+
+Route::get('/logout', [\App\Http\Controllers\Auth\Logout::class, 'logout']);
