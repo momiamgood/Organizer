@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AddressController;
+use App\Http\Controllers\MeetController;
+use App\Http\Controllers\NumberController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +22,12 @@ Route::get('/', function () {
 
 Route::get('/login', [\App\Http\Controllers\Auth\Login::class, 'show'])->name('login');
 Route::post('/login', [\App\Http\Controllers\Auth\Login::class, 'login']);
-
 Route::get('/register', [\App\Http\Controllers\Auth\Register::class, 'show'])->name('register');
 Route::post('/register', [\App\Http\Controllers\Auth\Register::class, 'store']);
-
 Route::get('/logout', [\App\Http\Controllers\Auth\Logout::class, 'logout']);
+
+Route::resources([
+    'number' => NumberController::class,
+    'meet' => MeetController::class,
+    'address' => AddressController::class
+]);

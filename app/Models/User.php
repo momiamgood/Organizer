@@ -40,4 +40,19 @@ class User extends Authenticatable
     protected $casts = [
         'password' => 'hashed',
     ];
+
+    public function meets(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Meet::class);
+    }
+
+    public function numbers(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Number::class);
+    }
+
+    public function addresses(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Address::class);
+    }
 }

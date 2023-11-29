@@ -18,7 +18,8 @@ class Login extends Controller
 
     public function login(LoginRequest $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
-        Auth::login($request->validated());
+        $user = User::where('username', $request->username)->first();
+        Auth::login($user);
         return redirect('/');
     }
 }
