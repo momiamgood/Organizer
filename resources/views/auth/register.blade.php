@@ -1,3 +1,4 @@
+<x-nav></x-nav>
 <h2>Регистрация</h2>
 <form action="{{ route('register') }}" method="post">
     @csrf

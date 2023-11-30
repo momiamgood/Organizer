@@ -1,3 +1,4 @@
+<x-nav></x-nav>
 <h1>{{ $number->title }}</h1>
 <p>{{ $number->number }}</p>
 

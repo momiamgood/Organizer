@@ -1,2 +1,2 @@
-@extends('../components.nav')
+<x-nav></x-nav>
 <h1>Дом</h1>

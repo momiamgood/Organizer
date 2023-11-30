@@ -1,3 +1,4 @@
+<x-nav></x-nav>
 <h1>Добавить номер</h1>
 
 <form method="post" action="{{ action([\App\Http\Controllers\NumberController::class, 'store']) }}">

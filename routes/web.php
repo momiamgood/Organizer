@@ -31,3 +31,5 @@ Route::resources([
     'meet' => MeetController::class,
     'address' => AddressController::class
 ]);
+
+Route::get('/search/results', [\App\Http\Controllers\SearchController::class, 'search'])->name('search');

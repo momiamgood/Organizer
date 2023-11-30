@@ -1,3 +1,4 @@
+<x-nav></x-nav>
 <h1>Встречи</h1>
 @if ($meets->isNotEmpty())
     @foreach($meets as $meet)

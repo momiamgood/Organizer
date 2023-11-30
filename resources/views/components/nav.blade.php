@@ -1,4 +1,4 @@
-@section('nav')
+<div>
     @guest
         <div>
             <a href="/login">Логин</a>
@@ -10,6 +10,7 @@
             <a href="/meet">Встречи</a>
             <a href="/address">Адреса</a>
             <a href="/number">Номера</a>
+            <a href="/logout">Выход</a>
         </div>
     @endauth
-@endsection
+</div>

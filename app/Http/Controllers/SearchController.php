@@ -9,19 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class SearchController extends Controller
 {
-    public function number(Request $q): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function search(Request $request): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $number = Number::search($q)->where('user_id', Auth::id())->get();
-        return view('search.results', [
-            'results' => $number
-        ]);
-    }
+        $q = $request->q;
+        $result = Number::where('user_id', Auth::id())
+            ->where('number','LIKE',"%{$q}%",'or', 'title','LIKE',"%{$q}%")
+            ->get();
 
-    public function address(Request $q): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
-    {
-        $address = Address::search($q)->where('user_id', Auth::id())->get();
         return view('search.results', [
-            'results' => $address
+            'results' => $result
         ]);
     }
 }
